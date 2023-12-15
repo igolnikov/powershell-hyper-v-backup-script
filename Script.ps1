@@ -8,8 +8,6 @@ $date = Get-Date -Format "yyyyMMdd-HHmmss"
 
 $backupPath = "C:\Backup\VMBackup_$wm1\"
 
-$backupPathAlpine = "C:\Backup\VMBackup_$wm1\"
-
 $backupPathArh = "C:\Backup\Arh\cryptedArh.7z"
 
 # we check if there are files that have not been deleted
@@ -29,7 +27,7 @@ if (Test-Path $backupPath -PathType Container) {
 Export-VM -Name $wm1 -Path $backupPath
 
 # Creating an archive
-$CompressArchive = 7z a -mx9 $backupPathArh $backupPathAlpine
+$CompressArchive = 7z a -mx9 $backupPathArh $backupPath
 
 # ----------------- crypted --------------
 # Specify the password for encryption
